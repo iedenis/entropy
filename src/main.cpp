@@ -12,7 +12,6 @@ int main(int argc, char **argv) {
 	ofstream wFile; // File stream object for write only
 
 	MyPair A[ASCII_NUM] = { };
-
 	char prevCh, curCh;
 
 	if (argc != 3) {
@@ -28,9 +27,10 @@ int main(int argc, char **argv) {
 		}
 		while (rFile.get(curCh)) {
 			A[(int) prevCh]++; // first character of pair appears in file (for printing usage)
-
 			A[(int) prevCh][(int) curCh]++;
-			cout << prevCh << (int) prevCh << curCh << (int) curCh << endl;
+			cout << prevCh << (int) prevCh << curCh << (int) curCh
+					<< "A[prevCH][curCh] " << A[(int) prevCh][(int) curCh]
+					<< endl;
 			prevCh = curCh;
 		}
 	} catch (ifstream::failure & e) {
@@ -49,7 +49,7 @@ int main(int argc, char **argv) {
 		throw;
 	}
 	//wFile << "Total Number of occurrences::" << MyChar::total << endl;
-	cout<< "Total Number of occurrences::" << MyChar::total << endl;
+	cout << "Total Number of occurrences::" << MyChar::total << endl;
 	for (int i = 0; i < ASCII_NUM; i++) {
 		if (A[i].occurrence) {
 			//wFile << "[" << (char)i << "]::" << A[i];
@@ -64,5 +64,6 @@ int main(int argc, char **argv) {
 	wFile.close();
 
 	return 0;
+
 }
 

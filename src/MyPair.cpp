@@ -5,19 +5,22 @@
  *      Author: fox
  */
 #include "MyPair.hpp"
-
-double MyPair::pi=0;
-MyPair MyPair::operator ++(int){
+#include "MyChar.hpp"
+double MyPair::pi = 0;
+MyChar B= { };
+//int MyPair::occurrences=0;
+MyPair MyPair::operator++(int) {
 	this->occurrence++;
 	MyChar::total++;
 	return *this;
 }
 
-MyPair MyPair::operator[](int){
-		return *this;
+MyChar& MyPair::operator[](int idx) {
+	return B[idx];
 }
- std::ostream& operator<<(std::ostream &os, const MyPair &mp){
-	 std::cout<<mp.occurrence<<std::endl;
+
+std::ostream& operator<<(std::ostream &os, const MyPair &mp) {
+	std::cout <<mp.occurrence << std::endl;
 	return os;
 }
 // int  computeEntropy(MyPair A[]){}

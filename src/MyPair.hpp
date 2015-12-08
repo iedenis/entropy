@@ -13,25 +13,33 @@
 class MyPair {
 private:
 public:
-	 int occurrence;
-		static double pi;
+	int occurrence;
+	static double pi;
+	const static int ASCII_NUM = 256;
 
-	MyChar A[];
+	MyChar B[ASCII_NUM];
 
 	MyPair operator++(int);
-	MyPair operator[](int);
+	MyChar& operator[](int);
 	friend std::ostream& operator<<(std::ostream &os, const MyPair &mp);
-	friend int computeEntropy(MyPair A[]){
-		for (int i = 0; i < 256; i++){
-			     if (A[i].occurrence){
-			       pi = (double)A[i].occurrence/MyChar::total;
-			       std::cout << "  -  Probability is " << pi << std::endl;
-			       MyChar::entropy -=  pi *log2(pi);
-	}
+	friend double computeEntropy(MyPair A[]) {
+		int subEntropy = 0;
+		for (int i = 0; i < ASCII_NUM; i++) {
+			for (int j = 0; j < ASCII_NUM; j++) {
+				if (A[i][j].occurrences) {
+					pi = (double) A[i][j].occurrences / MyChar::total;
+					std::cout << "  -  Probability is " << pi << std::endl;
+					std::cout << "entropy for letter " << (char) i << " is "
+							<< -pi * log2(pi) << std::endl;
+
+					subEntropy -= pi * log2(pi);
+				}
+			}
+			MyChar::entropy -= A[i].pi * subEntropy;
+
 		}
 		return MyChar::entropy;
 	}
-
 };
 
 #endif /* MYPAIR_HPP_ */

@@ -13,9 +13,11 @@ class MyChar {
 private:
 
 public:
+	int occurrences;
+
 	static double entropy;
 	static int total;
-//MyChar& operator++(int);
+	MyChar& operator++(int);
 
 };
 
