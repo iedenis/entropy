@@ -11,7 +11,6 @@
 int MyChar::total=0;
 double MyChar::entropy=0.0;
 
-
 std::ostream& operator<<(std::ostream &os, const MyChar &ch){
 std::cout<<ch.occurrences;
 	return os;

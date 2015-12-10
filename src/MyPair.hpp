@@ -23,6 +23,7 @@ public:
 	MyChar& operator[](int);
 
 	friend std::ostream& operator<<(std::ostream &os, const MyPair &mp);
+
 	friend double computeEntropy(MyPair A[]) {
 		double subEntropy = 0.0;
 		for (int i = 0; i < ASCII_NUM; i++) {

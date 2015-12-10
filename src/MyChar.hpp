@@ -18,9 +18,9 @@ public:
 	static double entropy;
 	static int total;
 	MyChar& operator++(int);
+friend	std::ostream& operator<<(std::ostream &os, const MyChar &ch);
 
 };
 
-std::ostream& operator<<(std::ostream &os, const MyChar &ch);
 
 #endif /* MYCHAR_HPP_ */
