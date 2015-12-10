@@ -23,4 +23,3 @@ std::ostream& operator<<(std::ostream &os, const MyPair &mp) {
 	std::cout <<mp.occurrence << std::endl;
 	return os;
 }
-// int  computeEntropy(MyPair A[]){}
