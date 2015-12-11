@@ -6,8 +6,7 @@
 class MyPair {
 private:
 public:
-	int occurrence;
-	//static int total;
+	int occurrence=0;
 	static double pi;
 	const static int ASCII_NUM = 256;
 
@@ -28,14 +27,6 @@ public:
 			}
 		}
 		return MyChar::entropy;
-	}
-	int sizeOfInner() {
-		int temp = 0;
-		for (int i = 0; i < ASCII_NUM; ++i) {
-			if (B[i].occurrences)
-				temp += B[i].occurrences;
-		}
-		return temp;
 	}
 };
 

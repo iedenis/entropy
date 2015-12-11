@@ -5,7 +5,7 @@ MyChar B= { };
 //int MyPair::total=0;
 MyPair& MyPair::operator++(int) {
 	this->occurrence++;
-	//MyChar::total++;
+	MyChar::total++;
 	return *this;
 }
 
