@@ -1,10 +1,3 @@
-/*
- * MyChar.hpp
- *
- *  Created on: Dec 1, 2015
- *      Author: fox
- */
-
 #ifndef MYCHAR_HPP_
 #define MYCHAR_HPP_
 #include <string>
@@ -13,14 +6,13 @@ class MyChar {
 private:
 
 public:
-	int occurrences;
-
-	static double entropy;
+	int occurrences=0;
 	static int total;
+	static double entropy;
+
 	MyChar& operator++(int);
-friend	std::ostream& operator<<(std::ostream &os, const MyChar &ch);
+	friend std::ostream& operator<<(std::ostream &os, const MyChar &ch);
 
 };
-
 
 #endif /* MYCHAR_HPP_ */
